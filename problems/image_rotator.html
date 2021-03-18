@@ -32,28 +32,55 @@
 
 	<hr />
 
-	<h4>Goku</h4>
-	<p>Ultra insting Goku</p>
-	<img src="../img/kat_1.jpg" /><br/>
+  <div id="image-list">
 
-	<h4>Monkey D Luffy</h4>
-	<p>Haki gear 5?.</p>
-	<img src="../img/kat_2.jpg" /><br/>
-
-	<h4>Naruto</h4>
-	<p>Sage Mode.</p>
-	<img src="../img/kat_3.jpg" /><br/>
-
-	<h4>Roronoa Zoro</h4>
-	<p>Where am I?.</p>
-	<img src="../img/kat_4.jpg" /><br/>
-
+    <h4>Goku</h4>
+    <p>Ultra insting Goku</p>
+    <img src="../img/kat_1.jpg" /><br/>
+    
+    <h4>Monkey D Luffy</h4>
+    <p>Haki gear 5?.</p>
+    <img src="../img/kat_2.jpg" /><br/>
+    
+    <h4>Naruto</h4>
+    <p>Sage Mode.</p>
+    <img src="../img/kat_3.jpg" /><br/>
+    
+    <h4>Roronoa Zoro</h4>
+    <p>Where am I?.</p>
+    <img src="../img/kat_4.jpg" /><br/>
+    
+  </div>
 	<hr/>
 
 	<div id="rotator">
-		Rotator Here
+		
 	</div>
 </div>
+<script>
+  const daftarGambar = document.getElementById('image-list').innerHTML
+    .trim()
+    .split('<br>\n')
+    .map(el => 
+      el.trim()
+        .split('\n ')
+        .map(element => element.trim())
+    )
+  // daftarGambar.unshift(['<button onclick=disini(1)>coba</button>'])
+  let index = 0
+  setInterval(() => {
+    const divAnimate = document.getElementById('rotator')
+    divAnimate.innerHTML = ''
+    divAnimate.insertAdjacentHTML( 'beforeend', daftarGambar[index].join('\r\n'))
+    index++
+    if (index === daftarGambar.length) index = 0
+  }, 3000);
 
+  console.log(daftarGambar);
+  
+  function disini(angka) {
+    console.log('mencoba' + angka)
+  }
+</script>
 </body>
 </html>

@@ -26,13 +26,15 @@
 	<hr/>
 
 	<h2>Search</h2>
-	<form>
+	<form onsubmit="event.preventDefault(); cari()">
 		<input type="text" id="search_input" value="llama" />
 		<input type="submit" value="Search" />
 	</form>
 
 	<h3>Results</h3>
-	Found 0 occurances of the word "llama" in the below text.
+  <p id="found">
+    Found 0 occurances of the word "llama" in the below text.
+  </p>
 
 	<hr/>
 
@@ -52,6 +54,26 @@
 		</p>
 	</div>
 </div>
+<script>
+  function cari(e) {
+    let kalimat = document.getElementById('cloning')
+    if (!kalimat) kalimat = document.getElementById('search_text')
+    
+    const pencarian = document.getElementById('search_input').value
+    const searchString = document.getElementById('search_text')
 
+    const body = document.getElementById('content')
+    const clone = kalimat.cloneNode(true)
+    clone.style.display = 'none'
+    clone.setAttribute('id', 'cloning')
+    body.appendChild(clone)
+    
+    const kalimatBaru = kalimat.innerHTML.split(pencarian)
+    document.getElementById('found').innerHTML = ''
+    document.getElementById('found').append(`Found ${kalimatBaru.length !== 1 ? kalimatBaru.length-1 : 0 } occurances of the word "${pencarian}" in the below text.`)
+    searchString.innerHTML = ''
+    searchString.insertAdjacentHTML( 'beforeend', kalimatBaru.join(`<b style="background-color: blue">${pencarian}</b>`))
+  }
+</script>
 </body>
 </html>

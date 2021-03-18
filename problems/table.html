@@ -17,6 +17,15 @@
 			border: 1px solid #CCCCCC;
 			vertical-align:middle; margin-bottom: 3px;
 		}
+
+    table, tbody, thead, th, td {
+      border: 1px solid white;
+      padding-left: 0.5em;
+      padding-right: 0.5em;
+      padding-top: 3px;
+      padding-bottom: 3px;
+      border-collapse: collapse;
+    }
 	</style>
 </head>
 <body>	
@@ -35,14 +44,27 @@
 			NRM : 123
 			Poli : Bedah Umum
 
-
-		<hr/>
-
-		<div id="container">
-			<p>Tampilan dibawah sini</p>
-
-			
-		</div>
-	</div>
-</body>
+      
+      
+      <hr/>
+      
+      <div id="container">
+        <p>Tampilan dibawah sini</p>
+        
+        
+      </div>
+      <table>
+        <thead>
+          <td>Nama</td>
+          <td>NRM</td>
+          <td>Poli</td>
+        </thead>
+        <tbody>
+          <td>Sobri</td>
+          <td>123</td>
+          <td>Bedah Umum</td>
+        </tbody>
+      </table>
+    </body>
+  </div>
 </html>

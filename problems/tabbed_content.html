@@ -17,6 +17,21 @@
 			border: 1px solid #CCCCCC;
 			vertical-align:middle; margin-bottom: 3px;
 		}
+
+    .aktif {
+      background-color: aqua;
+    }
+
+    div#container > button {
+      background-color: #DC291E; /* Green */
+      border: none;
+      color: white;
+      padding: 7px 16px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+    }
 	</style>
 </head>
 <body>	
@@ -39,23 +54,34 @@
 		<hr/>
 
 		<div id="container">
-			Ubah kalimat dibawah ini menjadi tab dengan keterangan di atas.
 
-			<h3>Tab 1</h3>
-			<p>
+			<button id="tombol1" onclick="buka(1)">Tab 1</button>
+			<button id="tombol2" onclick="buka(2)">Tab 2</button>
+			<button id="tombol3" onclick="buka(3)">Tab 3</button>
+
+			<p id="isi1" style="display: none;">
 				Gingerbread muffin gummies gingerbread macaroon. Lollipop candy applicake toffee faworki. Bear claw topping jelly toffee toffee powder tiramisu candy chupa chups. Chupa chups dragee icing applicake chupa chups dessert. Croissant jelly faworki marzipan tootsie roll marshmallow. Marshmallow toffee sweet roll fruitcake.
 			</p>
 
-			<h3>Tab 2</h3>
-			<p>
+			<p id="isi2" style="display: none;">
 				Chocolate faworki croissant brownie halvah macaroon gummi bears wypas. Chupa chups icing gummies pudding dessert carrot cake. Cupcake jelly beans sweet roll icing ice cream apple pie tootsie roll gummi bears marzipan. Brownie gummies chupa chups pie. Cupcake jujubes topping. 
 			</p>
 
-			<h3>Tab 3</h3>
-			<p>
+			<p id="isi3" style="display: none;">
 				Cheesecake jelly beans ice cream lollipop sweet pastry. Chupa chups dessert cheesecake sesame snaps. Cookie ice cream candy canes pastry cake muffin. Icing chocolate sweet gummi bears powder oat cake oat cake lemon drops.
 			</p>
 		</div>
 	</div>
+<script>
+  function buka(angka) {
+    const jumlahTombol = document.querySelectorAll('div#container > button, div#container > p')
+    jumlahTombol.forEach(el => {
+      if (el.tagName === 'BUTTON') el.style.backgroundColor = '#DC291E'
+      if (el.tagName === 'P') el.style.display = 'none'
+    })
+    document.getElementById("isi"+angka).style.display = 'block'
+    document.getElementById('tombol'+angka).style.backgroundColor = 'blue'
+  }
+</script>
 </body>
 </html>
